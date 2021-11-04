@@ -5,29 +5,32 @@
   "main": "index.js",
   "scripts": {
     "init-project": "npm install && npm-run-all init:*",
-    "init:dirs": "mkdirp sass css vendor images js",
-    "init:files": "touch README.md index.html sass/style.scss js/script.js",
+    "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js",
+    "init:files": "touch README.md src/index.html src/sass/style.scss src/js/script.js",
     "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "init:gitignore:custom": "echo \"dist\" >> .gitignore",
     "test": "npm run test:html",
     "test:html": "html-validate *.html",
-    "build": "npm-run-all bulid:* test",
-    "build:sass": "node-sass --output-style compact -o css sass",
-    "build:autoprefixer": "autoprefixer-cli css/style.css",
+    "build": "npm-run-all build:* test",
+    "build:sass": "sass src/sass/style.scss src/css/style.css",
+    "build:autoprefixer": "postcss src/css/style.css -r src/css/style.css",
     "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
-    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
+    "build-dev:sass": "sass --style=expanded src/sass/style.scss src/css/style.css",
     "watch": "npm-run-all build:* build-dev -p watch:*",
-    "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\"",
-    "watch:sassprefixer": "onchange sass/*.scss -- npm run build-dev"
+    "watch:browsersync": "browser-sync start --server src --files \"src/**/*\"",
+    "watch:sassprefixer": "onchange \"src/sass/*.scss\" -- npm run build-dev"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.27.7",
     "html-validate": "^6.1.0",
     "mkdirp": "^1.0.4",
-    "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
-    "onchange": "^7.1.0"
+    "onchange": "^7.1.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "autoprefixer": "^10.4.0",
+    "sass": "^1.43.4"
   }
 }
