@@ -1,1 +1,60 @@
+/*Global*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+}
+
+/*Header*/
+header {
+  height: 600px;
+  background-image: url("../images//foto_1.jpg");
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  background: black;
+  width: 100%;
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 20px 0 0;
+}
+nav ul li {
+  list-style-type: none;
+  font-size: 2rem;
+  padding: 10px 35px 10px 0;
+}
+nav ul a {
+  color: white;
+  text-decoration: none;
+}
+nav ul :hover {
+  color: red;
+}
+
+.company-name {
+  margin: auto;
+  background: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 250px;
+  padding: 5px;
+}
+.company-name h1 {
+  color: white;
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
