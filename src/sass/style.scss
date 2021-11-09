@@ -4,8 +4,18 @@
 *::after {
   box-sizing: border-box;
 }
+$font-color: rgb(173, 178, 255);
 body {
   margin: 0;
+}
+
+section {
+  margin: 50px 0 0 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1150px;
 }
 
 /*Header*/
@@ -20,6 +30,7 @@ nav {
   position: fixed;
   background: black;
   width: 100%;
+  z-index: 1;
   ul {
     display: flex;
     justify-content: flex-end;
@@ -52,5 +63,47 @@ nav {
   h1 {
     color: white;
     margin: 0;
+  }
+}
+
+/*Introduction*/
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .intro-img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    max-width: 500px;
+
+    .intro-title {
+      margin-top: 0;
+      color: $font-color;
+    }
+  }
+}
+.card {
+  width: 300px;
+  height: 400px;
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  i {
+    font-size: 40px;
+    color: $font-color;
   }
 }

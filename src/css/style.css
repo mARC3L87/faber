@@ -9,6 +9,15 @@ body {
   margin: 0;
 }
 
+section {
+  margin: 50px 0 0 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1150px;
+}
+
 /*Header*/
 header {
   height: 600px;
@@ -22,6 +31,7 @@ nav {
   position: fixed;
   background: black;
   width: 100%;
+  z-index: 1;
 }
 nav ul {
   display: flex;
@@ -55,6 +65,47 @@ nav ul :hover {
 .company-name h1 {
   color: white;
   margin: 0;
+}
+
+/*Introduction*/
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.row .intro-img {
+  width: 500px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.row .intro {
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px;
+  max-width: 500px;
+}
+.row .intro .intro-title {
+  margin-top: 0;
+  color: #adb2ff;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.card i {
+  font-size: 40px;
+  color: #adb2ff;
 }
 
 /*# sourceMappingURL=style.css.map */
