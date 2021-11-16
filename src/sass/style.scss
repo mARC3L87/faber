@@ -10,12 +10,13 @@ body {
 }
 
 section {
-  margin: 50px 0 0 0;
+  margin: 70px 0 0 0;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1150px;
+  overflow-x: hidden;
 }
 
 /*Header*/
@@ -27,7 +28,7 @@ header {
   position: relative;
 }
 nav {
-  position: fixed;
+  //position: fixed;
   background: black;
   width: 100%;
   z-index: 1;
@@ -120,9 +121,16 @@ nav {
   }
 }
 
+.image-row {
+  display: inline-flex;
+  position: relative;
+  transition: ease-in 0.5ms;
+}
+
 .foto-box {
   width: 300px;
   height: 400px;
+  margin: 0 10px;
   img {
     object-fit: cover;
     width: 100%;
@@ -133,4 +141,15 @@ nav {
     opacity: 0.7;
     cursor: pointer;
   }
+}
+/*Contact*/
+.contact-title {
+  color: $font-color;
+  text-align: center;
+}
+
+/*Footer*/
+footer {
+  text-align: center;
+  background-color: wheat;
 }
