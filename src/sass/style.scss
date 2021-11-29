@@ -16,7 +16,7 @@ section {
 .container {
   margin: 0 auto;
   max-width: 1150px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /*Header*/
@@ -27,11 +27,12 @@ header {
   background-size: cover;
   position: relative;
 }
-nav {
+.nav {
   //position: fixed;
   background: black;
   width: 100%;
   z-index: 1;
+  //display: none;
   ul {
     display: flex;
     justify-content: flex-end;
@@ -48,6 +49,20 @@ nav {
     & :hover {
       color: red;
     }
+  }
+}
+.hamburger {
+  position: absolute;
+  left: 90%;
+  top: 4%;
+  display: none;
+  > div {
+    width: 24px;
+    height: 4px;
+    background-color: red;
+    margin-bottom: 5px;
+    display: block;
+    z-index: 2;
   }
 }
 .company-name {
@@ -120,17 +135,19 @@ nav {
     color: $font-color;
   }
 }
-
-.image-row {
-  display: inline-flex;
-  position: relative;
-  transition: ease-in 0.5ms;
+.image-container {
+  display: flex;
+  justify-content: flex-start;
+  .image-row {
+    display: inline-flex;
+    transition: ease-in 0.5ms;
+  }
 }
 
 .foto-box {
   width: 300px;
   height: 400px;
-  margin: 0 10px;
+  margin: 0 36px;
   img {
     object-fit: cover;
     width: 100%;
@@ -142,14 +159,103 @@ nav {
     cursor: pointer;
   }
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .btn {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 3px;
+    margin: 5px 25px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    cursor: pointer;
+    transition: ease-in-out 4ms;
+  }
+  & :hover {
+    border-color: grey;
+  }
+}
+.btn-right {
+  transform: rotate(-45deg);
+}
+
+.btn-left {
+  transform: rotate(135deg);
+}
 /*Contact*/
 .contact-title {
   color: $font-color;
   text-align: center;
 }
+.contact-details {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  li {
+    padding: 10px 0 40px 0;
+    i {
+      position: absolute;
+      font-size: 40px;
+    }
+    p {
+      margin: 10px 60px 0;
+    }
+  }
+}
 
 /*Footer*/
 footer {
   text-align: center;
-  background-color: wheat;
+}
+/*Media Queries*/
+@media screen and (max-width: 576px) {
+  /*Header*/
+  header {
+    width: 100%;
+    .hamburger {
+      display: block;
+      z-index: 2;
+    }
+    .nav {
+      background-color: blue;
+      height: 400px;
+      position: absolute;
+      ul {
+        display: flex;
+        margin: 50px 0 0 0;
+        flex-direction: column;
+      }
+    }
+  }
+  /*Introduction*/
+  .row {
+    flex-direction: column;
+    align-items: center;
+    .intro-img {
+      width: 314px;
+      height: 150px;
+      margin: 0 auto 10px;
+    }
+    .intro-title {
+      margin: 20px auto;
+    }
+  }
+  /*Our Work*/
+  .work-box {
+    p {
+      margin: 0 15px;
+    }
+  }
+  .image-row {
+    .foto-box {
+      margin: 0 10px;
+    }
+  }
 }
