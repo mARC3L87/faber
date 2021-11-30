@@ -1,3 +1,4 @@
+const links = document.querySelectorAll('.nav ul a');
 const imageRow = document.querySelector('.image-row');
 const fotoBox = document.querySelectorAll(
   '.image-container .image-row .foto-box'
@@ -11,6 +12,18 @@ const style = getComputedStyle(oneFotoBox);
 const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
 const size = fotoBox[0].offsetWidth + margin;
 
+//Smooth scroll
+const clickHandler = (e) => {
+  e.preventDefault();
+  const clickedElement = e.currentTarget;
+  const linkHref = clickedElement.getAttribute('href');
+  document.querySelector(linkHref).scrollIntoView({
+    behavior: 'smooth',
+  });
+};
+links.forEach((link) => link.addEventListener('click', clickHandler));
+
+//Counter gallery
 const initCounter = () => {
   let counter = 0;
   return () => {
