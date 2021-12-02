@@ -1,4 +1,5 @@
 const links = document.querySelectorAll('.nav ul a');
+const hamburger = document.querySelector('.hamburger');
 const imageRow = document.querySelector('.image-row');
 const fotoBox = document.querySelectorAll(
   '.image-container .image-row .foto-box'
@@ -12,6 +13,13 @@ const style = getComputedStyle(oneFotoBox);
 const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
 const size = fotoBox[0].offsetWidth + margin;
 
+//Hamburger menu
+hamburger.addEventListener('click', () => {
+  const nav = document.querySelector('.nav');
+  const list = document.querySelector('.nav ul');
+  nav.classList.toggle('active');
+  list.classList.toggle('active');
+});
 //Smooth scroll
 const clickHandler = (e) => {
   e.preventDefault();

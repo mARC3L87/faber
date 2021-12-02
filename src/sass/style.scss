@@ -229,12 +229,25 @@ footer {
     }
     .nav {
       background-color: blue;
-      height: 400px;
-      position: absolute;
+      //max-height: 400px;
+      height: 0;
+      position: relative;
+      transition: 0.5s ease-in-out;
       ul {
         display: flex;
-        margin: 50px 0 0 0;
+        height: 0;
         flex-direction: column;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        &.active {
+          height: 171px;
+          margin: 50px 0 0 0;
+          transition: 0.5s;
+        }
+      }
+      &.active {
+        height: 400px;
+        transition: 0.5s;
       }
     }
   }
