@@ -1,3 +1,4 @@
+//Variables
 const links = document.querySelectorAll('.nav ul a');
 const hamburger = document.querySelector('.hamburger');
 const imageRow = document.querySelector('.image-row');
@@ -59,3 +60,45 @@ const initCounter = () => {
 };
 const counterGallery = initCounter();
 counterGallery();
+
+//Google Map
+function initMap() {
+  const options = {
+    center: {
+      lat: 52.77179806501172,
+      lng: 18.097317556249045,
+    },
+    zoom: 15,
+  };
+  const map = new google.maps.Map(document.getElementById('map'), options);
+  const marker = new google.maps.Marker({
+    position: {
+      lat: 52.77161640223765,
+      lng: 18.097115668124744,
+    },
+    map,
+  });
+}
+
+//Gallery
+const pictures = document.querySelectorAll('.picture-wrapper .zoom-picture');
+const arrowLeft = document.querySelector('.arrows .arrow-left');
+const arrowRight = document.querySelector('.arrows .arrow-right');
+arrowRight.addEventListener('click', () => {
+  const current = document.querySelector('.picture-wrapper .active');
+  current.classList.remove('active');
+  if (current.nextElementSibling) {
+    current.nextElementSibling.classList.add('active');
+  } else {
+    pictures[0].classList.add('active');
+  }
+});
+arrowLeft.addEventListener('click', () => {
+  const current = document.querySelector('.picture-wrapper .active');
+  current.classList.remove('active');
+  if (current.previousElementSibling) {
+    current.previousElementSibling.classList.add('active');
+  } else {
+    pictures[pictures.length - 1].classList.add('active');
+  }
+});

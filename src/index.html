@@ -15,6 +15,26 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div id="modal" class="modal-style">
+      <div class="modal-content">
+        <div class="picture-wrapper">
+          <img
+            src="./images/foto_3.jpeg"
+            alt="zoom-1"
+            class="zoom-picture active"
+          />
+          <img src="./images/foto_2.jpeg" alt="zoom-1" class="zoom-picture" />
+          <img src="./images/foto_1.jpg" alt="zoom-1" class="zoom-picture" />
+          <img src="./images/foto_5.jpeg" alt="zoom-1" class="zoom-picture" />
+          <img src="./images/foto_4.jpeg" alt="zoom-1" class="zoom-picture" />
+        </div>
+        <div class="close"></div>
+        <div class="arrows">
+          <button class="btn arrow-left">left</button>
+          <button class="btn arrow-right">right</button>
+        </div>
+      </div>
+    </div>
     <header>
       <div class="hamburger">
         <div></div>
@@ -148,10 +168,15 @@
               <p>marcel.lukomski@gmail.com</p>
             </li>
           </ul>
+          <div id="map"></div>
         </div>
       </section>
     </main>
     <footer>&copy Marcel 2021</footer>
   </body>
+  <script
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnBXIdoe_GRR7p-RjqKsgK118W3FvZdpM&callback=initMap"
+  ></script>
   <script src="js/script.js"></script>
 </html>
