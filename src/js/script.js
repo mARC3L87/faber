@@ -2,6 +2,7 @@
 const links = document.querySelectorAll('.nav ul a');
 const hamburger = document.querySelector('.hamburger');
 const imageRow = document.querySelector('.image-row');
+const modal = document.querySelector('#modal');
 const fotoBox = document.querySelectorAll(
   '.image-container .image-row .foto-box'
 );
@@ -102,9 +103,24 @@ arrowLeft.addEventListener('click', () => {
     pictures[pictures.length - 1].classList.add('active');
   }
 });
+//Open modal
+fotoBox.forEach((box, indexBox) =>
+  box.addEventListener('click', (e) => {
+    modal.style.display = 'block';
+    console.log(e.target);
+    console.log(box, indexBox);
+    pictures.forEach((picture, indexPicture) => {
+      picture.classList.remove('active');
+      if (indexBox === indexPicture) {
+        picture.classList.add('active');
+      }
+    });
+    // const current = document.querySelector('.picture-wrapper .active');
+    // e.target.classList.add('active');
+  })
+);
 
 //Close modal
-const modal = document.querySelector('#modal');
 const closeButton = document.querySelector('.close');
 closeButton.addEventListener('click', () => {
   modal.style.display = 'none';
