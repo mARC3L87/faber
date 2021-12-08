@@ -106,12 +106,13 @@ arrowLeft.addEventListener('click', () => {
 //Open modal
 fotoBox.forEach((box, indexBox) =>
   box.addEventListener('click', (e) => {
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     console.log(e.target);
     console.log(box, indexBox);
     pictures.forEach((picture, indexPicture) => {
       picture.classList.remove('active');
       if (indexBox === indexPicture) {
+        console.log(picture, indexPicture);
         picture.classList.add('active');
       }
     });

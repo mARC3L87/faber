@@ -21,6 +21,99 @@ section {
   max-width: 1150px;
   overflow: hidden;
 }
+/*Modal*/
+.modal-style {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  backdrop-filter: blur(8px);
+  z-index: 1;
+  justify-content: center;
+  .modal-content {
+    position: fixed;
+    top: 200px;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+    align-items: center;
+    .picture-wrapper {
+      width: 600px;
+      height: 600px;
+      background: lightgray;
+      .zoom-picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+    }
+    .arrows {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .btn {
+        background: none;
+        margin: 0 8px;
+        border-top: 8px solid black;
+        border-left: 8px solid black;
+        border-bottom: none;
+        border-right: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: ease 250ms;
+        &:hover {
+          opacity: 0.7;
+          border-color: blanchedalmond;
+        }
+      }
+      .arrow-left {
+        transform: rotate(-45deg);
+      }
+      .arrow-right {
+        transform: rotate(135deg);
+      }
+    }
+  }
+  .close {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transform: translate(722%, 485%);
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 17px;
+      background: rgb(190, 206, 206);
+      height: 34px;
+      width: 3px;
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background: rgb(190, 206, 206);
+      top: 2px;
+      left: 17px;
+      height: 34px;
+      width: 3px;
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
 
 /*Header*/
 header {
@@ -216,69 +309,6 @@ header {
 /*Footer*/
 footer {
   text-align: center;
-}
-
-/*Modal*/
-.modal-style {
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  backdrop-filter: blur(8px);
-  z-index: 1;
-  .modal-content {
-    position: fixed;
-    top: 200px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    .close {
-      position: relative;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      &::before {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 17px;
-        background: darkslategray;
-        height: 34px;
-        width: 3px;
-        transform: rotate(45deg);
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        background: darkslategray;
-        top: 2px;
-        left: 17px;
-        height: 34px;
-        width: 3px;
-        transform: rotate(-45deg);
-      }
-      &:hover {
-        transform: scale(1.2);
-        opacity: 0.7;
-      }
-    }
-    .picture-wrapper {
-      width: 600px;
-      height: 600px;
-      background: lightgray;
-      .zoom-picture {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: none;
-        &.active {
-          display: block;
-        }
-      }
-    }
-  }
 }
 
 /*Media Queries*/
